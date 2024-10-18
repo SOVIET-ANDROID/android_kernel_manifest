@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="aosp" 
+          fetch="https://android.googlesource.com/" />
+  <remote  name="github"
+    fetch="https://github.com/" />
+  <remote  name="gitlab"
+    fetch="https://gitlab.com/" />
+
+  <!-- AOSP -->
+  <default revision="master-kernel-build-2021" remote="aosp" sync-j="4" />
+  <superproject name="kernel/superproject" remote="aosp"/>
+  <project path="build" name="kernel/build" />
+  <project path="kernel/tests" name="kernel/tests" />
+  <project path="kernel/configs" name="kernel/configs" />
+  <project path="prebuilts-master/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" />
+  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" clone-depth="1" />
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" />
+
+  <!-- Sunny Kernel -->
+  <project path="kernel/msm-4.14" name="SOVIET-ANDROID/kernel_xiaomi_raphael" remote="github" revision="dev/headers" >
+    <linkfile dest="build.config" src="build.config.raphael" />
+  </project>
+
+  <!-- Clang -->
+  <project path="prebuilts/clang/host/linux-x86/clang-r536225" name="crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r536225" remote="gitlab" revision="15.0" clone-depth="1" />
+
+</manifest>
